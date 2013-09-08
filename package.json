@@ -1,0 +1,15 @@
+{
+  "name": "bolzano-webhooks",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "repository": "git://github.com:elevate-festival/bolzano-webhooks.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "dependencies": {
+    "shelljs": "~0.2.2"
+  }
+}
