@@ -1,0 +1,11 @@
+{
+  "port": "5010",
+  "client": {
+    "id": 10964957,
+    "path": "../../sandbox/client/public"
+  },
+  "server": {
+    "id": 12572422,
+    "path": "../../sandbox/server"
+  }
+}
