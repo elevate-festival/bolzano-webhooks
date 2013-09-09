@@ -2,10 +2,12 @@
   "port": "5010",
   "client": {
     "id": 10964957,
+    "branch": "master",
     "path": "../../sandbox/client/public"
   },
   "server": {
     "id": 12572422,
+    "branch": "master",
     "name": "pubsub",
     "path": "../../sandbox/server"
   }

@@ -7,7 +7,7 @@ nconf.file({ file: 'config.json'});
 
 var manageHook = function(payload) {
   // handle server
-  if(payload.repository.id === nconf.get('server').id){
+  if(payload.repository.id === nconf.get('server').id && payload.ref == 'refs/heads/' + nconf.get('server').branch){
     console.log('>>> updating server');
     shell.cd(nconf.get('client').path);
     shell.exec('git pull');
@@ -16,7 +16,7 @@ var manageHook = function(payload) {
   }
 
   // handle client
-  if(payload.repository.id === nconf.get('client').id){
+  if(payload.repository.id === nconf.get('client').id && payload.ref == 'refs/heads/' + nconf.get('client').branch){
     console.log('>>> updating client');
     shell.cd(nconf.get('client').path);
     shell.exec('git pull');
