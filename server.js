@@ -9,6 +9,10 @@ var manageHook = function(payload) {
   // handle server
   if(payload.repository.id === nconf.get('server').id){
     console.log('>>> updating server');
+    shell.cd(nconf.get('client').path);
+    shell.exec('git pull');
+    shell.exec('npm install');
+    shell.exec('pm2 restart ' + nconf.get('server').name);
   }
 
   // handle client

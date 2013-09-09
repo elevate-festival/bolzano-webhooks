@@ -6,6 +6,7 @@
   },
   "server": {
     "id": 12572422,
+    "name": "pubsub",
     "path": "../../sandbox/server"
   }
 }
