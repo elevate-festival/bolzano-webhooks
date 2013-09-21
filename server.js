@@ -6,19 +6,34 @@ var nconf = require('nconf');
 nconf.file({ file: 'config.json'});
 
 var manageHook = function(payload) {
-  // handle server
-  if(payload.repository.id === nconf.get('server').id && payload.ref == 'refs/heads/' + nconf.get('server').branch){
-    console.log('>>> updating server');
-    shell.cd(nconf.get('client').path);
+
+  var config;
+
+  // handle pubsub server
+  config = nconf.get('pubsub-server');
+  if(payload.repository.id === config.id && payload.ref == 'refs/heads/' + config.branch){
+    console.log('>>> updating pubsub server');
+    shell.cd(config.path);
     shell.exec('git pull');
     shell.exec('npm install');
-    shell.exec('pm2 restart ' + nconf.get('server').name);
+    shell.exec('pm2 restart ' + config.name);
+  }
+
+  // handle media server FIXME refator #DRY
+  config = nconf.get('media-server');
+  if(payload.repository.id === config.id && payload.ref == 'refs/heads/' + config.branch){
+    console.log('>>> updating madia server');
+    shell.cd(config.path);
+    shell.exec('git pull');
+    shell.exec('npm install');
+    shell.exec('pm2 restart ' + config.name);
   }
 
   // handle client
-  if(payload.repository.id === nconf.get('client').id && payload.ref == 'refs/heads/' + nconf.get('client').branch){
+  config = nconf.get('client');
+  if(payload.repository.id === config.id && payload.ref == 'refs/heads/' + config.branch){
     console.log('>>> updating client');
-    shell.cd(nconf.get('client').path);
+    shell.cd(config.path);
     shell.exec('git pull');
     shell.exec('bower install');
   }

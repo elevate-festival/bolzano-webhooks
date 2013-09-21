@@ -5,10 +5,16 @@
     "branch": "master",
     "path": "../../sandbox/client/public"
   },
-  "server": {
+  "pubsub-server": {
     "id": 12572422,
     "branch": "master",
     "name": "pubsub",
-    "path": "../../sandbox/server"
+    "path": "../../sandbox/pubsub-server"
+  },
+  "media-server": {
+    "id": 12572422,
+    "name": "pubsub",
+    "branch": "master",
+    "path": "../../sandbox/media-server"
   }
 }
